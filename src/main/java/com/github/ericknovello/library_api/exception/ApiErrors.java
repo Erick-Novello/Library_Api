@@ -23,6 +23,3 @@ public class ApiErrors {
         return errors;
     }
 }
-
-
-}
