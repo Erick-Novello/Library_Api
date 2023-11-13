@@ -4,7 +4,6 @@ import com.github.ericknovello.library_api.entities.Book;
 import com.github.ericknovello.library_api.exception.BusinessException;
 import com.github.ericknovello.library_api.repositories.BookRepository;
 import com.github.ericknovello.library_api.services.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,8 +11,12 @@ import java.util.Optional;
 @Service
 public class BookServiceImp implements BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+
+    private final BookRepository bookRepository;
+
+    public BookServiceImp(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     @Override
     public Book save(Book book) {
